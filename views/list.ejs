@@ -1,0 +1,34 @@
+<%- include("header") -%>
+
+    <div class="box" id="heading">
+        <h1><%= listTitle %></h1>
+
+        <!-- Scriptlet tag for control-flow -->
+        <!-- <% if (listTitle === "Saturday" || listTitle === "Sunday") { %>
+            <h1 style="color: purple"><%= listTitle %> ToDo List</h1>
+        <% } else { %>
+            <h1 style="color: blue"><%= listTitle %> ToDo   List</h1>
+        <% } %> -->
+    </div>
+    
+    
+    <div class="box">
+        <ul>
+        <!-- <li><%= newListTasks %></li> -->
+
+        <% for (var i = 0; i < newListTasks.length; i++) { %>
+        <div class="item">
+            <input type="checkbox">
+            <p><%= newListTasks[i] %></p>
+        </div> 
+        <% } %>
+        </ul>
+
+        <form method="post" action="/">
+            <input type="text" placeholder="New Task" name="newTask" autocomplete="off">
+
+            <button type="submit" name="list" value=<%= listTitle %>>+</button>
+        </form>
+    </div>
+
+<%- include("footer") -%>
